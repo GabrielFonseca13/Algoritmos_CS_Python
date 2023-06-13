@@ -1,10 +1,17 @@
 def study_schedule(permanence_period, target_time):
-    """Faça o código aqui."""
-    raise NotImplementedError
+    if not target_time or not isinstance(target_time, int):
+        return None
+
+    counter = 0
+    for student in permanence_period:
+        if not isinstance(student[0], int) or not isinstance(student[1], int):
+            return None
+        if student[0] <= target_time and student[1] >= target_time:
+            counter += 1
+    return counter
 
 
-# 1.1 - Retorne a quantidade de estudantes presentes para uma entrada
-# específica;
+print(study_schedule([(2, 2), (1, 2), (2, 3), (1, 5), (4, 5), (4, 5)], 2))
 
 # 1.2 - Retorne None se em permanence_period houver alguma entrada inválida;
 
